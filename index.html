@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <title>MOTORWERK | Mitarbeiterportal</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body data-page="employee">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">MW</span><span>MOTORWERK<small>MITARBEITERPORTAL</small></span></a>
+    <nav><a class="active" href="index.html">Übersicht</a><a href="admin.html" id="admin-link" hidden>Admin-Panel</a></nav>
+    <button class="button button-quiet" id="logout" hidden>Abmelden</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div><p class="eyebrow">INTERNER BEREICH · MOTORWERK</p><h1>Willkommen im<br><span>Werkstattportal.</span></h1>
+      <p class="muted">Hier findest du aktuelle Informationen, Ankündigungen und Hinweise aus dem Betrieb.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="ring"></div><div class="hero-label">PERFORMANCE<br><b>MEETS PRECISION</b></div></div>
+    </section>
+
+    <section class="login-card" id="login-panel">
+      <div><p class="eyebrow">MITARBEITER-LOGIN</p><h2>Bitte anmelden</h2><p class="muted">Melde dich mit deinem persönlichen Werkstattkonto an.</p></div>
+      <form id="login-form" class="stack">
+        <label>E-Mail-Adresse<input type="email" id="email" autocomplete="username" required placeholder="name@werkstatt.de"></label>
+        <label>Passwort<input type="password" id="password" autocomplete="current-password" required placeholder="Dein Passwort"></label>
+        <button class="button button-primary" type="submit">Anmelden <span>→</span></button>
+        <p class="status" id="login-status" role="status"></p>
+      </form>
+    </section>
+
+    <section id="portal" hidden>
+      <div class="section-heading"><div><p class="eyebrow">AUF DEM NEUESTEN STAND</p><h2>Aktuelle Mitteilungen</h2></div><span class="live-dot">LIVE</span></div>
+      <div id="announcements" class="announcement-list"><p class="muted">Beiträge werden geladen …</p></div>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> MOTORWERK · Internes Mitarbeiterportal</footer>
+</body>
+</html>

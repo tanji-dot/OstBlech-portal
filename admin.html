@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <title>MOTORWERK | Admin-Panel</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body data-page="admin">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">MW</span><span>MOTORWERK<small>ADMINISTRATION</small></span></a>
+    <nav><a href="index.html">Mitarbeiterportal</a><a class="active" href="admin.html">Admin-Panel</a></nav>
+    <button class="button button-quiet" id="logout" hidden>Abmelden</button>
+  </header>
+
+  <main class="container admin-main">
+    <div class="page-title"><p class="eyebrow">INHALTE VERWALTEN</p><h1>Admin<span>-Panel.</span></h1><p class="muted">Erstelle Mitteilungen, die direkt im Mitarbeiterportal erscheinen.</p></div>
+    <section class="login-card" id="login-panel">
+      <div><p class="eyebrow">ADMIN-LOGIN</p><h2>Administrator-Anmeldung</h2><p class="muted">Nur freigeschaltete Admin-Konten haben Zugriff.</p></div>
+      <form id="login-form" class="stack">
+        <label>E-Mail-Adresse<input type="email" id="email" autocomplete="username" required></label>
+        <label>Passwort<input type="password" id="password" autocomplete="current-password" required></label>
+        <button class="button button-primary" type="submit">Anmelden <span>→</span></button>
+        <p class="status" id="login-status" role="status"></p>
+      </form>
+    </section>
+
+    <section id="admin-area" hidden>
+      <div class="editor-grid">
+        <section class="panel">
+          <p class="eyebrow">NEUIGKEIT VERÖFFENTLICHEN</p><h2>Neuen Beitrag erstellen</h2>
+          <form id="post-form" class="stack">
+            <label>Überschrift<input id="post-title" maxlength="120" required placeholder="z. B. Neue Öffnungszeiten"></label>
+            <label>Kategorie<select id="post-category"><option>Allgemein</option><option>Wichtige Information</option><option>Arbeitsanweisung</option><option>Termin</option><option>Personal</option></select></label>
+            <label>Nachricht<textarea id="post-body" rows="7" maxlength="10000" required placeholder="Schreibe hier die Information für deine Mitarbeiter …"></textarea></label>
+            <button class="button button-primary" type="submit">Beitrag veröffentlichen <span>→</span></button>
+            <p class="status" id="post-status" role="status"></p>
+          </form>
+        </section>
+        <section class="panel">
+          <div class="section-heading"><div><p class="eyebrow">PUBLISHED</p><h2>Veröffentlichte Beiträge</h2></div><span class="live-dot">LIVE</span></div>
+          <div id="admin-announcements" class="announcement-list"><p class="muted">Beiträge werden geladen …</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="year"></span> MOTORWERK · Administrationsbereich</footer>
+</body>
+</html>
